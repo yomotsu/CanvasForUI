@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+canvas{border:1px solid #ddd;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="../build/c4u.js"></script>
+</head>
+<body>
+
+<h1>Click Event</h1>
+<canvas width="400" height="400" id="canvas"></canvas>
+
+<script>
+$( function () {
+
+  C4U.init( '#canvas' );
+
+  var img = new Image();
+  img.src = 'miku.png';
+
+  img.onload = function () {
+    main();
+  }
+
+function main () {
+    var myRect1 = new C4U.Rect( 100, 100 );
+    myRect1.position = { x: 300, y: 300 };
+    myRect1.color = 'rgb( 255, 0, 0 )';
+    myRect1.name = 'red square'
+
+    var myRaster = new C4U.Raster( img );
+    myRaster.name = 'miku!';
+
+    C4U.render();
+
+    myRect1.on( 'click', function ( e ) {
+      alert( 'clicked ' + this.name );
+    } );
+
+    myRaster.on( 'click', function ( e ) {
+      alert( 'clicked ' + this.name );
+    } );
+  }
+
+} );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# craps
+*.sass-cache
+.DS_Store
+.cache
+Thumbs.db
+_notes
